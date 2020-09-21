@@ -6,9 +6,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created By ${
+ * FERGANI DIA EL EDDINE
+ * }  On
+ * sept.
+ * 2020
+ */
+
+
 @RestController
 @RequestMapping("api/user")
-
 public class UserController {
    @Autowired
    private UserData datain;
@@ -52,6 +60,15 @@ public class UserController {
    @GetMapping("/updataUsers")
     public int updataUser(@RequestBody User user){
         return   datain.UpdataUser(user);
+
+    }   @GetMapping("/callusers")
+    public List<User>CallUsers(){
+        return   datain.CallUsers();
+
+    }
+   @GetMapping("/calluser/{id}")
+    public String CallUser(@PathVariable int id ){
+        return   datain.CallUser(id);
 
     }
 
